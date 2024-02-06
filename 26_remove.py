@@ -3,15 +3,16 @@
 # Slow-fast pointers
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
+        if not nums:
+            return 0
+        
         slow, fast = 0, 1
-        count = 0
-        while fast > len(nums):
+        
+        for fast in range(1, len(nums)):
             if nums[fast] != nums[slow]:
-                nums[slow + 1] = nums[fast]
-                count += 1
-            if nums[fast] == nums[slow]:
-                fast += 1
-        return count, nums
+                slow += 1
+                nums[slow] = nums[fast]
+        return slow + 1
         
         
             

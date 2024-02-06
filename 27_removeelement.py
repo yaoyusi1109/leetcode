@@ -3,16 +3,12 @@
 
 class Solution:
     def removeElement(self, nums: List[int], val: int) -> int:
-        a, b = 0, 1
-        k = 0
-        for b in range(1, len(nums)):
-            if nums[a] == val:
-                nums[a] = nums[b]
-            a += 1
-        for i in nums:
-            if i != val:
-                k += 1
-        return k 
+        a, b = 0, 0
+        for a in range(len(nums)):
+            if nums[a] != val:
+                nums[b] = nums[a]
+                b += 1
+        return b 
             
                 
             
